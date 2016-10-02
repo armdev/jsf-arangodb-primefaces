@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<faces-config xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+            http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
+              version="2.2">
+  
+    <factory>
+        <exception-handler-factory>com.project.web.handlers.ViewExpiredExceptionExceptionHandlerFactory</exception-handler-factory>
+    </factory>
+   
+    <application>
+        <locale-config>
+            <default-locale>en</default-locale>      
+              
+        </locale-config>    
+        <resource-bundle>
+            <base-name>i18n</base-name>
+            <var>i18n</var>        
+        </resource-bundle>
+      
+        <resource-bundle>
+            <base-name>access</base-name>
+            <var>accessProp</var>
+        </resource-bundle>
+        <resource-bundle>
+            <base-name>confirmationMessages</base-name>
+            <var>confirmMsgs</var>            
+        </resource-bundle>
+       
+        <message-bundle>
+            messages
+        </message-bundle>        
+        <resource-library-contracts>
+<!--            <contract-mapping>
+                <url-pattern>/pages/user/*</url-pattern>
+                <contracts>user</contracts>                
+            </contract-mapping>              -->
+            <contract-mapping>
+                <url-pattern>*</url-pattern>
+                <contracts>default</contracts>
+            </contract-mapping>
+        </resource-library-contracts>  
+    </application>
+    <navigation-rule>        
+        <from-view-id>*</from-view-id>
+       
+        <navigation-case>
+            <from-outcome>logout</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>   
+       
+               
+    </navigation-rule>  
+</faces-config>
